@@ -1,0 +1,67 @@
+{% extends 'site/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Content Start -->
+<div class="container" id="content" role="main">
+        <aside class="welcome">
+                    <div class="selfquote welcomequote">
+              <img class="selfquote-quotes" src="{% static 'site/wp-content/themes/teambeat/img/quote-image.svg' %}" alt="Quotes" />
+                        <div class="selfquote__item">
+                <b>Welcome to The network legal blog 👋</b><br><br>
+                            I'm Yash, co-founder at The network legal.<br><br>
+    
+                            On this blog, I look at different organizational design problems and try to find solutions to them. I publish 2-3 posts a month, so if you like what you read <a href="../digest/index.html" target="_blank">subscribe</a> to get the new ones.
+              </div>
+              <div class="selfquote__author">
+                <img src="{% static 'site/img/home_2.png' %}" alt="Alex Potrivaev" />
+                    <div class="selfquote__names">
+                        <a class="selfquote-founders">Yash<br></a>
+                        <span class="selfquote__span">Co-Founder at The network legal</span>
+                    </div>
+              </div>
+            </div>
+    
+            <div class="welcome-banner"><a href="#" target="_blank"><img src="{% static 'site/img/ad_banner.png' %}"></a></div>
+        </aside>
+    
+        <main>
+            
+                {% for post in posts %}
+                {% if post.published == True %}
+                <article id="post-438" class="post-438 post type-post status-publish format-standard has-post-thumbnail hentry category-culture tag-company-culture tag-engagement tag-teambuilding">
+                        <header class="entry-header">
+                            <h2><a href="#" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+                        </header>
+                        <div class="entry-meta">
+                            By <a href="#" title="Posts by {{ post.author }}" rel="author">{{ post.author }}</a> in <a href="#" rel="category tag">{{ post.category }}</a>			</div>
+                        <a href="{% url 'post_details_slug' post.slug %}" class="post-thumbnail">
+                                {% if post.cover_image %}
+                                <img width="327" height="245" src="{{ post.cover_image.url }}" class="full-width wp-post-image" alt="cover image" />			</a>
+                                {% else %}
+                                <img width="327" height="245" src="{% static 'site/img/blog_cover.jpg' %}" class="full-width wp-post-image" alt="cover image" />			</a>
+                                {% endif %}
+                            
+                        <p> {{ post.short_desc }} [&hellip;]</p>
+                        <footer class="entry-footer">
+                            <a href="{% url 'post_details_slug' post.slug %}" class="read-more">Read more<i class="icon-arrow-right"></i></a>
+                        </footer>
+                    </article>
+                    <hr />
+                    <div style="margin-bottom:50px;"></div>
+                {% endif %}
+                {% endfor %}
+            
+    
+            
+           
+    
+            
+            <nav class="pagination">
+                        </nav>
+    
+        </main>
+    
+    </div><!--/#content-->
+    <!-- /Page Content End -->
+{% endblock  %}
+

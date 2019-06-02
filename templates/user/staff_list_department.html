@@ -1,0 +1,1148 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+<!-- MAIN CONTENT
+    ================================================== -->
+    
+      <!-- CARDS -->
+      <div class="container-fluid">
+        <div class="row" hidden>
+          <div class="col-12 col-lg-6 col-xl">
+            
+            <!-- Card -->
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Title -->
+                    <h6 class="card-title text-uppercase text-muted mb-2">
+                      Budget
+                    </h6>
+                    
+                    <!-- Heading -->
+                    <span class="h2 mb-0">
+                      $24,500
+                    </span>
+
+                    <!-- Badge -->
+                    <span class="badge badge-soft-success mt-n1">
+                      +3.5%
+                    </span>
+
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Icon -->
+                    <span class="h2 fe fe-dollar-sign text-muted mb-0"></span>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-12 col-lg-6 col-xl">
+            
+            <!-- Card -->
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Title -->
+                    <h6 class="card-title text-uppercase text-muted mb-2">
+                      Total Hours
+                    </h6>
+                    
+                    <!-- Heading -->
+                    <span class="h2 mb-0">
+                      763.5
+                    </span>
+
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Icon -->
+                    <span class="h2 fe fe-briefcase text-muted mb-0"></span>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+            </div>
+              
+          </div>
+          <div class="col-12 col-lg-6 col-xl">
+            
+            <!-- Card -->
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Title -->
+                    <h6 class="card-title text-uppercase text-muted mb-2">
+                      Progress
+                    </h6>
+
+                    <div class="row align-items-center no-gutters">
+                      <div class="col-auto">
+
+                        <!-- Heading -->
+                        <span class="h2 mr-2 mb-0">
+                          84.5%
+                        </span>
+                        
+                      </div>
+                      <div class="col">
+                        
+                        <!-- Progress -->
+                        <div class="progress progress-sm">
+                          <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                      </div>
+                    </div> <!-- / .row -->
+
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Icon -->
+                    <span class="h2 fe fe-clipboard text-muted mb-0"></span>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+            </div>
+              
+          </div>
+          <div class="col-12 col-lg-6 col-xl">
+            
+            <!-- Card -->
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Title -->
+                    <h6 class="card-title text-uppercase text-muted mb-2">
+                      Effective Hourly
+                    </h6>
+                    
+                    <!-- Heading -->
+                    <span class="h2 mb-0">
+                      $85.50
+                    </span>
+
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Icon -->
+                    <span class="h2 fe fe-clock text-muted mb-0"></span>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+            </div>
+              
+          </div>
+        </div> <!-- / .row -->
+        <!-- Documents -->
+        <div class="card" data-toggle="lists" data-lists-values='["name"]' hidden>
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col">
+                  
+                  <!-- Title -->
+                  <h4 class="card-header-title">
+                    Files
+                  </h4>
+
+                </div>
+                <div class="col-auto">
+                  
+                  <!-- Dropdown -->
+                  <div class="dropdown">
+
+                    <!-- Toggle -->
+                    <a href="#" class="small text-muted dropdown-toggle" data-toggle="dropdown">
+                      Sort order
+                    </a>
+
+                    <!-- Menu -->
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item sort" data-sort="name" href="#!">
+                        Asc
+                      </a>
+                      <a class="dropdown-item sort" data-sort="name" href="#!">
+                        Desc
+                      </a>
+                    </div>
+
+                  </div>
+  
+                </div>
+                <div class="col-auto">
+                  
+                  <!-- Button -->
+                  <a href="#modalAddDocument" class="btn btn-sm btn-primary" data-toggle="modal" hidden>
+                    Upload
+                  </a>
+
+              
+
+
+                </div>
+              </div> <!-- / .row -->
+            </div>
+            <div class="card-header">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <!-- Form -->
+                  <form>
+                    <div class="input-group input-group-flush input-group-merge">
+                      <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <span class="fe fe-search"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div> <!-- / .row -->
+            </div>
+            <div class="card-body">
+
+              <!-- List -->
+              <ul class="list-group list-group-lg list-group-flush list my-n4">
+                <li class="list-group-item px-0">
+                  
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      
+                      <!-- Avatar -->
+                      <a href="#!" class="avatar avatar-lg">
+                        <img src="{% static 'dashboard/assets/img/adhar.png' %}" alt="..." class="avatar-img rounded">
+                      </a>
+
+                    </div>
+                    <div class="col ml-n2">
+
+                      <!-- Title -->
+                      <h4 class="card-title mb-1 name">
+                        <a href="#!">Adhar Card</a>
+                      </h4>
+
+                      <!-- Text -->
+                      <p class="card-text small text-muted mb-1">
+                        {% if user.profile.adhar_number %}
+                          <h3><b>{{ user.profile.adhar_number }}</b></h3>
+                          <a href="{{ user.profile.adhar_card.url }}" target="_blank">View</a>
+                        {% else %}
+                          You have not uploaded adhar details yet.
+                          <a href="#modalAddAdhar" data-toggle="modal">Change</a>
+                        {% endif %}
+                      </p>
+
+                      <!-- Time -->
+                      <p class="card-text small text-muted">
+                        Last updated on <time datetime="2018-01-03">{{ user.profile.adhar_update_date }}</time>
+                      </p>
+                      
+                    </div>
+                    <div class="col-auto">
+                      
+                      <!-- Button -->
+                      <a href="#modalAddAdhar" data-toggle="modal" class="btn btn-sm btn-white d-none d-md-inline-block">
+                        Update Adhar Details
+                      </a>
+
+                    </div>
+                    <div class="col-auto">
+                      
+                      <!-- Dropdown -->
+                      <div class="dropdown">
+                        <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <a href="#modalAddAdhar" data-toggle="modal" class="dropdown-item">
+                              Update Adhar Details
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div> <!-- / .row -->
+
+                </li>
+                <li class="list-group-item px-0">
+                  
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        
+                        <!-- Avatar -->
+                        <a href="#!" class="avatar avatar-lg">
+                          <img src="{% static 'dashboard/assets/img/pan.png' %}" alt="..." class="avatar-img rounded">
+                        </a>
+  
+                      </div>
+                      <div class="col ml-n2">
+  
+                        <!-- Title -->
+                        <h4 class="card-title mb-1 name">
+                          <a href="#!">Pan Card</a>
+                        </h4>
+  
+                        <!-- Text -->
+                        <p class="card-text small text-muted mb-1">
+                          {% if user.profile.pan_number %}
+                            <h3><b>{{ user.profile.pan_number }}</b></h3>
+                            <a href="{{ user.profile.pan_card.url }}" target="_blank">View</a>
+                          {% else %}
+                            You have not updated pan details yet.
+                            <a href="#modalAddPan" data-toggle="modal">Change</a>
+                          {% endif %}
+                        </p>
+  
+                        <!-- Time -->
+                        <p class="card-text small text-muted">
+                          Last updated on <time datetime="2018-01-03">{{ user.profile.pan_update_date }}</time>
+                        </p>
+                        
+                      </div>
+                      <div class="col-auto">
+                        
+                        <!-- Button -->
+                        <a href="#modalAddPan" data-toggle="modal" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          Update Pan Details
+                        </a>
+  
+                      </div>
+                      <div class="col-auto">
+                        
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                          <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fe fe-more-vertical"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#modalAddPan" data-toggle="modal" class="dropdown-item">
+                                Update Pan Details
+                            </a>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div> <!-- / .row -->
+  
+                  </li>
+                <li class="list-group-item px-0">
+                  
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      
+                      <!-- Avatar -->
+                      <a href="#!" class="avatar avatar-lg">
+                        <span class="avatar-title rounded bg-white text-secondary">
+                          <span class="fe fe-folder"></span>
+                        </span>
+                      </a>
+
+                    </div>
+                    <div class="col ml-n2">
+
+                      <!-- Title -->
+                      <h4 class="card-title mb-1 name">
+                        <a href="#!">SSC Certificate</a>
+                      </h4>
+
+                      <!-- Text -->
+                      <p class="card-text small text-muted mb-1">
+                          {% if user.profile.ssc_cert %}
+                          <h4>Successfully Uploaded</h4>
+                          <a href="{{ user.profile.ssc_cert.url }}" target="_blank">View</a>
+                        {% else %}
+                          You have not updated details yet.
+                          <a href="#" data-toggle="modal">Change<i class="fas fa-arrow-right"></i></a>
+                        {% endif %}
+                      </p>
+
+                      <!-- Time -->
+                      <p class="card-text small text-muted">
+                         You can update it only on computer.
+                          Last updated on <time datetime="2018-01-03">{{ user.profile.ssc_update_date }}</time>
+                      </p>
+                      
+                    </div>
+                    <div class="col-auto">
+                      
+                        <form action="{% url 'complete_ssc_details' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                          {{ ssc_form.ssc_cert }}
+                        <button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          Update Document
+                        </button>
+                      </form>
+                      {% if ssc_cer %}
+                      <a href="{{ user.profile.ssc_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          View Document
+                      </a>
+                      {% endif %}
+
+                    </div>
+                    <div class="col-auto">
+                      
+                      
+
+                    </div>
+                  </div> <!-- / .row -->
+
+                </li>
+                <li class="list-group-item px-0">
+                  
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        
+                        <!-- Avatar -->
+                        <a href="#!" class="avatar avatar-lg">
+                          <span class="avatar-title rounded bg-white text-secondary">
+                            <span class="fe fe-folder"></span>
+                          </span>
+                        </a>
+  
+                      </div>
+                      <div class="col ml-n2">
+  
+                        <!-- Title -->
+                        <h4 class="card-title mb-1 name">
+                          <a href="#!">HSC Certificate</a>
+                        </h4>
+  
+                        <!-- Text -->
+                        <p class="card-text small text-muted mb-1">
+                            {% if user.profile.hsc_cert %}
+                            <h4>Successfully Uploaded</h4>
+                            <a href="{{ user.profile.hsc_cert.url }}" target="_blank">View</a>
+                          {% else %}
+                            You have not updated details yet.
+                            <a href="#" data-toggle="modal">Change<i class="fas fa-arrow-right"></i></a>
+                          {% endif %}
+                        </p>
+  
+                        <!-- Time -->
+                        <p class="card-text small text-muted">
+                           You can update it only on computer.
+                            Last updated on <time datetime="2018-01-03">{{ user.profile.hsc_update_date }}</time>
+                        </p>
+                        
+                      </div>
+                      <div class="col-auto">
+                        
+                          <form action="{% url 'complete_hsc_details' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                            {{ hsc_form.hsc_cert }}
+                          <button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                            Update Document
+                          </button>
+                        </form>
+                        {% if hsc_cer %}
+                        <a href="{{ user.profile.hsc_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                            View Document
+                        </a>
+                        {% endif %}
+  
+                      </div>
+                      <div class="col-auto">
+                        
+                        
+  
+                      </div>
+                    </div> <!-- / .row -->
+  
+                  </li>
+                <li class="list-group-item px-0">
+                  
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          
+                          <!-- Avatar -->
+                          <a href="#!" class="avatar avatar-lg">
+                            <span class="avatar-title rounded bg-white text-secondary">
+                              <span class="fe fe-folder"></span>
+                            </span>
+                          </a>
+    
+                        </div>
+                        <div class="col ml-n2">
+    
+                          <!-- Title -->
+                          <h4 class="card-title mb-1 name">
+                            <a href="#!">BE Certificate</a>
+                          </h4>
+    
+                          <!-- Text -->
+                          <p class="card-text small text-muted mb-1">
+                              {% if user.profile.be_cert %}
+                              <h4>Successfully Uploaded</h4>
+                              <a href="{{ user.profile.be_cert.url }}" target="_blank">View</a>
+                            {% else %}
+                              You have not updated details yet.
+                              <a href="#" data-toggle="modal">Change<i class="fas fa-arrow-right"></i></a>
+                            {% endif %}
+                          </p>
+    
+                          <!-- Time -->
+                          <p class="card-text small text-muted">
+                             You can update it only on computer.
+                              Last updated on <time datetime="2018-01-03">{{ user.profile.be_update_date }}</time>
+                          </p>
+                          
+                        </div>
+                        <div class="col-auto">
+                          
+                            <form action="{% url 'complete_be_details' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                              {{ be_form.be_cert }}
+                            <button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                              Update Document
+                            </button>
+                          </form>
+                          {% if be_cert %}
+                          <a href="{{ user.profile.be_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                              View Document
+                          </a>
+                          {% endif %}
+    
+                        </div>
+                        <div class="col-auto">
+                          
+                          
+    
+                        </div>
+                      </div> <!-- / .row -->
+    
+                  </li>
+                <li class="list-group-item px-0">
+                  
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            
+                            <!-- Avatar -->
+                            <a href="#!" class="avatar avatar-lg">
+                              <span class="avatar-title rounded bg-white text-secondary">
+                                <span class="fe fe-folder"></span>
+                              </span>
+                            </a>
+      
+                          </div>
+                          <div class="col ml-n2">
+      
+                            <!-- Title -->
+                            <h4 class="card-title mb-1 name">
+                              <a href="#!">ME Certificate</a>
+                            </h4>
+      
+                            <!-- Text -->
+                            <p class="card-text small text-muted mb-1">
+                                {% if user.profile.me_cert %}
+                                <h4>Successfully Uploaded</h4>
+                                <a href="{{ user.profile.me_cert.url }}" target="_blank">View</a>
+                              {% else %}
+                                You have not updated details yet.
+                                <a href="#" data-toggle="modal">Change<i class="fas fa-arrow-right"></i></a>
+                              {% endif %}
+                            </p>
+      
+                            <!-- Time -->
+                            <p class="card-text small text-muted">
+                               You can update it only on computer.
+                                Last updated on <time datetime="2018-01-03">{{ user.profile.me_update_date }}</time>
+                            </p>
+                            
+                          </div>
+                          <div class="col-auto">
+                            
+                              <form action="{% url 'complete_me_details' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                                {{ me_form.me_cert }}
+                              <button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                                Update Document
+                              </button>
+                            </form>
+                            {% if me_cert %}
+                            <a href="{{ user.profile.me_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                                View Document
+                            </a>
+                            {% endif %}
+      
+                          </div>
+                          <div class="col-auto">
+                            
+                            
+      
+                          </div>
+                        </div> <!-- / .row -->
+      
+                  </li>
+                  <li class="list-group-item px-0">
+                  
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          
+                          <!-- Avatar -->
+                          <a href="#!" class="avatar avatar-lg">
+                            <span class="avatar-title rounded bg-white text-secondary">
+                              <span class="fe fe-folder"></span>
+                            </span>
+                          </a>
+    
+                        </div>
+                        <div class="col ml-n2">
+    
+                          <!-- Title -->
+                          <h4 class="card-title mb-1 name">
+                            <a href="#!">PHD Certificate</a>
+                          </h4>
+    
+                          <!-- Text -->
+                          <p class="card-text small text-muted mb-1">
+                              {% if user.profile.phd_cert %}
+                              <h4>Successfully Uploaded</h4>
+                              <a href="{{ user.profile.phd_cert.url }}" target="_blank">View</a>
+                            {% else %}
+                              You have not updated details yet.
+                              <a href="#" data-toggle="modal">Change<i class="fas fa-arrow-right"></i></a>
+                            {% endif %}
+                          </p>
+    
+                          <!-- Time -->
+                          <p class="card-text small text-muted">
+                             You can update it only on computer.
+                              Last updated on <time datetime="2018-01-03">{{ user.profile.phd_update_date }}</time>
+                          </p>
+                          
+                        </div>
+                        <div class="col-auto">
+                          
+                            <form action="{% url 'complete_phd_details' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                              {{ phd_form.phd_cert }}
+                            <button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                              Update Document
+                            </button>
+                          </form>
+                          {% if phd_cert %}
+                          <a href="{{ user.profile.phd_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                              View Document
+                          </a>
+                          {% endif %}
+    
+                        </div>
+                        <div class="col-auto">
+                          
+                          
+    
+                        </div>
+                      </div> <!-- / .row -->
+    
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+        <div class="row" hidden>
+          <div class="col-12 col-xl-8">
+            
+            <!-- Orders -->
+            <div class="card">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col">
+                
+                    <!-- Title -->
+                    <h4 class="card-header-title">
+                      Orders
+                    </h4>
+
+                  </div>
+                  <div class="col-auto mr-n3">
+                    
+                    <!-- Caption -->
+                    <span class="text-muted">
+                      Show affiliate:
+                    </span>
+
+                  </div>
+                  <div class="col-auto">
+
+                    <!-- Switch -->
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="cardToggle" data-toggle="chart" data-target="#ordersChart" data-add='{"data":{"datasets":[{"data":[15,10,20,12,7,0,8,16,18,16,10,22],"backgroundColor":"#d2ddec","label":"Affiliate"}]}}'>
+                      <label class="custom-control-label" for="cardToggle"></label>
+                    </div>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+              <div class="card-body">
+                
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="ordersChart" class="chart-canvas"></canvas>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-12 col-xl-4">
+
+            <!-- Devices -->
+            <div class="card">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col">
+                
+                    <!-- Title -->
+                    <h4 class="card-header-title">
+                      Devices
+                    </h4>
+
+                  </div>
+                  <div class="col-auto">
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+                      <li class="nav-item" data-toggle="chart" data-target="#devicesChart" data-update='{"data":{"datasets":[{"data":[60,25,15]}]}}'>
+                        <a href="#" class="nav-link active" data-toggle="tab">
+                          All
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#devicesChart" data-update='{"data":{"datasets":[{"data":[15,45,20]}]}}'>
+                        <a href="#" class="nav-link" data-toggle="tab">
+                          Direct
+                        </a>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+              <div class="card-body">
+                
+                <!-- Chart -->
+                <div class="chart chart-appended">
+                  <canvas id="devicesChart" class="chart-canvas" data-target="#devicesChartLegend"></canvas>
+                </div>
+
+                <!-- Legend -->
+                <div id="devicesChartLegend" class="chart-legend"></div>
+
+              </div>
+            </div>
+            
+          </div>
+        </div> <!-- / .row -->
+        <div class="row"hidden>
+          <div class="col-12 col-xl-4">
+
+            <!-- Projects -->
+            <div class="card">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col">
+                    
+                    <!-- Title -->
+                    <h4 class="card-header-title">
+                      Projects
+                    </h4>
+
+                  </div>
+                  <div class="col-auto">
+
+                    <!-- Link -->
+                    <a href="#!" class="small">View all</a>
+                    
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+              <div class="card-body">
+
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    
+                    <!-- Avatar -->
+                    <a href="project-overview.html" class="avatar avatar-4by3">
+                      <img src="assets/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
+                    </a>
+
+                  </div>
+                  <div class="col ml-n2">
+
+                    <!-- Title -->
+                    <h4 class="card-title mb-1">
+                      <a href="project-overview.html">Homepage Redesign</a>
+                    </h4>
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <time datetime="2018-05-24">Updated 5hr ago</time>
+                    </p>
+                    
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fe fe-more-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#!" class="dropdown-item">
+                          Action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Another action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Something else here
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div> <!-- / .row -->
+
+                <!-- Divider -->
+                <hr>
+
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    
+                    <!-- Avatar -->
+                    <a href="project-overview.html" class="avatar avatar-4by3">
+                      <img src="assets/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
+                    </a>
+
+                  </div>
+                  <div class="col ml-n2">
+
+                    <!-- Title -->
+                    <h4 class="card-title mb-1">
+                      <a href="project-overview.html">Travels & Time</a>
+                    </h4>
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <time datetime="2018-05-24">Updated 3hr ago</time>
+                    </p>
+                    
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fe fe-more-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#!" class="dropdown-item">
+                          Action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Another action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Something else here
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div> <!-- / .row -->
+
+                <!-- Divider -->
+                <hr>
+
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    
+                    <!-- Avatar -->
+                    <a href="project-overview.html" class="avatar avatar-4by3">
+                      <img src="assets/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
+                    </a>
+
+                  </div>
+                  <div class="col ml-n2">
+
+                    <!-- Title -->
+                    <h4 class="card-title mb-1">
+                      <a href="project-overview.html">Safari Exploration</a>
+                    </h4>
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <time datetime="2018-05-24">Updated 10hr ago</time>
+                    </p>
+                    
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fe fe-more-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#!" class="dropdown-item">
+                          Action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Another action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Something else here
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div> <!-- / .row -->
+
+                <!-- Divider -->
+                <hr>
+
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    
+                    <!-- Avatar -->
+                    <a href="project-overview.html" class="avatar avatar-4by3">
+                      <img src="assets/img/avatars/projects/project-5.jpg" alt="..." class="avatar-img rounded">
+                    </a>
+
+                  </div>
+                  <div class="col ml-n2">
+
+                    <!-- Title -->
+                    <h4 class="card-title mb-1">
+                      <a href="project-overview.html">Personal Site</a>
+                    </h4>
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <time datetime="2018-05-24">Updated 4hr ago</time>
+                    </p>
+                    
+                  </div>
+                  <div class="col-auto">
+                    
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fe fe-more-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#!" class="dropdown-item">
+                          Action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Another action
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                          Something else here
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div> <!-- / .row -->
+
+              </div> <!-- / .card-body -->
+            </div> <!-- / .card -->           
+
+          </div>
+          <div class="col-12 col-xl-8">
+            
+            <!-- Performance -->
+            <div class="card">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col">
+                
+                    <!-- Title -->
+                    <h4 class="card-header-title">
+                      Performance
+                    </h4>
+
+                  </div>
+                  <div class="col-auto">
+
+                    <!-- Nav -->
+                    <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+                      <li class="nav-item" data-toggle="chart" data-target="#performanceChart" data-update='{"data":{"datasets":[{"data":[0,10,5,15,10,20,15,25,20,30,25,40]}]}}'>
+                        <a class="nav-link active" href="#" data-toggle="tab">
+                          All
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#performanceChart" data-update='{"data":{"datasets":[{"data":[7,35,12,27,34,17,19,30,28,32,24,39]}]}}'>
+                        <a class="nav-link" href="#" data-toggle="tab">
+                          Direct
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#performanceChart" data-update='{"data":{"datasets":[{"data":[2,12,35,25,36,25,34,16,4,14,15,37]}]}}'>
+                        <a class="nav-link" href="#" data-toggle="tab">
+                          Organic
+                        </a>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+              <div class="card-body">
+                
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="performanceChart" class="chart-canvas"></canvas>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-12">
+            
+            <!-- Goals -->
+            <div class="card" data-toggle="lists" data-lists-values='["name"]'>
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                  
+                    <!-- Form -->
+                    <form>
+                      <div class="input-group input-group-flush input-group-merge">
+                        <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <span class="fe fe-search"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+  
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+              <div class="table-responsive mb-0" data-toggle="lists" data-lists-values='["goal-project", "goal-status", "goal-progress", "goal-date"]'>
+                <table class="table table-sm table-nowrap card-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <a href="#" class="text-muted sort" data-sort="goal-project">
+                          Name
+                        </a>
+                      </th>
+                      <th>
+                        <a href="#" class="text-muted sort" data-sort="goal-status">
+                          Email
+                        </a>
+                      </th>
+                      <th>
+                        <a href="#" class="text-muted sort" data-sort="goal-progress">
+                          Mobile
+                        </a>
+                      </th>
+                      <th>
+                        <a href="#" class="text-muted sort" data-sort="goal-date">
+                          Designation
+                        </a>
+                      </th>
+                      
+                      <th class="text-right sort" data-sort="goal-date">
+                        department
+                      </th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody class="list">
+                    {% for teacher in staff %}
+                      {% if teacher.profile.department == user.profile.department %}
+                    <tr>
+                        <td class="goal-project name">
+                          {{ teacher.first_name }} {{ teacher.last_name }}
+                        </td>
+                        <td class="goal-status">
+                          <span class="text-success">@</span> {{ teacher.email }}
+                        </td>
+                        <td class="goal-progress">
+                            {{ teacher.profile.mobile }}
+                        </td>
+                        <td class="goal-date">
+                          <time datetime="2018-10-24">
+                              {% if teacher.profile.designation == 1 %}
+                                Assistant Professor
+                              {% elif teacher.profile.designation == 2 %}
+                                Associate Professor
+                              {% elif teacher.profile.designation == 3 %}
+                                Professor
+                              {% elif teacher.profile.designation == 4 %}
+                                HOD
+                              {% else %}
+                                Designation not yet updated
+                              {% endif %}
+                          </time>
+                        </td>
+                        <td class="text-right">
+                            {% if teacher.profile.department == 1 %}
+                            Computer Engineering
+                            {% elif teacher.profile.department == 2 %}
+                            Information Technology
+                            {% elif teacher.profile.department == 3 %}
+                            Electrical Engineering
+                            {% elif teacher.profile.department == 4 %}
+                            Electronics Engineering
+                            {% elif teacher.profile.department == 5 %}
+                            Instrumentation Engineering
+                            {% elif teacher.profile.department == 6 %}
+                            Electronics And Telecommunications
+                            {% else %}
+                               Department not yet updated
+                            {% endif %}
+                              
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a href="{% url 'staff_department' user.profile.department teacher.id %}" class="btn btn-sm btn-white">
+                              View Details
+                            </a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              </div>
+
+            
+
+            </div>
+
+          </div>
+          
+        </div> <!-- / .row -->
+      </div>
+
+    </div> <!-- / .main-content -->
+{% endblock %}

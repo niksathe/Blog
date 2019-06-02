@@ -1,0 +1,555 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+<!-- HEADER -->
+<div class="header">
+
+    <div class="container-fluid">
+      <!-- Body -->
+      <div class="header-body mt-n5 mt-md-n6">
+        <div class="row align-items-end">
+          <div class="col-auto">
+            
+            <!-- Avatar -->
+            <div class="avatar avatar-xxl header-avatar-top">
+              <img {% if staff.profile_image.url %}src="{{ staff.profile_image.url }}"{% else %}src="{% static 'dashboard/assets/img/team-logo-7.jpg' %}"{% endif %} alt="..." class="avatar-img rounded-circle border border-4 border-body" hidden>
+            </div>
+
+          </div>
+          <div class="col mb-3 ml-n3 ml-md-n2">
+            
+            <!-- Pretitle -->
+            <h6 class="header-pretitle">
+              Details of 
+            </h6>
+
+            <!-- Title -->
+            <h1 class="header-title">
+                {% if staff.first_name and staff.last_name %}
+                    {{ staff.first_name }} {{ staff.last_name }} 
+                    <small style="color:#0093e7;">
+                        {% if staff.profile.designation == 1 %}
+                        Assistant Professor
+                      {% elif staff.profile.designation == 2 %}
+                        Associate Professor
+                      {% elif staff.profile.designation == 3 %}
+                        Professor
+                      {% elif staff.profile.designation == 4 %}
+                        HOD
+                      {% else %}
+                        Designation not yet updated
+                      {% endif %}
+                       at 
+                       {% if staff.profile.department == 1 %}
+                            Computer Engineering
+                            {% elif staff.profile.department == 2 %}
+                            Information Technology
+                            {% elif staff.profile.department == 3 %}
+                            Electrical Engineering
+                            {% elif staff.profile.department == 4 %}
+                            Electronics Engineering
+                            {% elif staff.profile.department == 5 %}
+                            Instrumentation Engineering
+                            {% elif staff.profile.department == 6 %}
+                            Electronics And Telecommunications
+                            {% else %}
+                               Department not yet updated
+                            {% endif %}
+                    </small>
+                {% else %}
+                    Not Updated Yet
+                {% endif %}
+            </h1>
+
+          </div>
+          <div class="col-12 col-md-auto mt-2 mt-md-0 mb-md-3">
+            
+            <!-- Button -->
+            <a href="mailto:{{ staff.email }}" class="btn btn-sm btn-white d-none d-md-inline-block">
+              &nbsp; &nbsp; <i class="fe fe-mail"></i> &nbsp; &nbsp;
+            </a>
+
+          </div>
+        </div> <!-- / .row -->
+        <div class="row align-items-center">
+          <div class="col">
+            
+            <!-- Nav -->
+            <ul class="nav nav-tabs nav-overflow header-tabs" hidden>
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  Files
+                </a>
+              </li>
+              
+            </ul>
+
+          </div>
+        </div>
+      </div> <!-- / .header-body -->
+
+    </div>
+  </div>
+    <!-- CONTENT -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        
+        <!-- Files -->
+        <div class="card" data-toggle="lists" data-lists-values='["name"]'>
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col">
+                
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Files
+                </h4>
+
+              </div>
+              <div class="col-auto">
+                
+                <!-- Dropdown -->
+                <div class="dropdown">
+
+                  <!-- Toggle -->
+                  <a href="#" class="small text-muted dropdown-toggle" data-toggle="dropdown">
+                    Sort order
+                  </a>
+
+                  <!-- Menu -->
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item sort" data-sort="name" href="#!">
+                      Asc
+                    </a>
+                    <a class="dropdown-item sort" data-sort="name" href="#!">
+                      Desc
+                    </a>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-auto">
+                
+                <!-- Button -->
+                <a href="#!" class="btn btn-sm btn-primary" disabled>
+                  Download All
+                </a>
+
+              </div>
+            </div> <!-- / .row -->
+          </div>
+          <div class="card-header">
+            <div class="row">
+              <div class="col-12">
+                
+                <!-- Form -->
+                <form>
+                  <div class="input-group input-group-flush input-group-merge">
+                    <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <span class="fe fe-search"></span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div> <!-- / .row -->
+          </div>
+          <div class="card-body">
+
+            <!-- List -->
+            <ul class="list-group list-group-lg list-group-flush list my-n4">
+              <li class="list-group-item px-0">
+                  
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    
+                    <!-- Avatar -->
+                    <a href="#!" class="avatar avatar-lg">
+                      <img src="{% static 'dashboard/assets/img/adhar.png' %}" alt="..." class="avatar-img rounded">
+                    </a>
+
+                  </div>
+                  <div class="col ml-n2">
+
+                    <!-- Title -->
+                    <h4 class="card-title mb-1 name">
+                      <a href="#!">Adhar Card</a>
+                    </h4>
+
+                    <!-- Text -->
+                    <p class="card-text small text-muted mb-1">
+                      {% if staff.profile.adhar_number %}
+                        <h3><b>{{ staff.profile.adhar_number }}</b></h3>
+                        
+                        
+                      {% else %}
+                      <small style="color:crimson;">Adhar card is not yet uploaded</small>
+                      {% endif %}
+                    </p>
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      Last updated on <time datetime="2018-01-03">{{ staff.profile.adhar_update_date }}</time>
+                    </p>
+                    
+                  </div>
+                  <div class="col-auto">
+
+                      {% if staff.profile.adhar_card %}
+                      <a href="{{ staff.profile.adhar_card.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          View Document
+                        </a>
+                      <a href="{{ staff.profile.adhar_card.url }}" class="btn btn-sm btn-white d-none d-md-inline-block" download="">Download</a>
+                      {% else %}
+                      <small style="color:crimson;">Unavailable</small>
+                      {% endif %}
+                    
+                    
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </li>
+              <li class="list-group-item px-0">
+                
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      
+                      <!-- Avatar -->
+                      <a href="#!" class="avatar avatar-lg">
+                        <img src="{% static 'dashboard/assets/img/pan.png' %}" alt="..." class="avatar-img rounded">
+                      </a>
+
+                    </div>
+                    <div class="col ml-n2">
+
+                      <!-- Title -->
+                      <h4 class="card-title mb-1 name">
+                        <a href="#!">Pan Card</a>
+                      </h4>
+
+                      <!-- Text -->
+                      <p class="card-text small text-muted mb-1">
+                        {% if staff.profile.pan_number %}
+                          <h3><b>{{ staff.profile.pan_number }}</b></h3>
+                        {% else %}
+                        <small style="color:crimson;">Pan card is not yet uploaded</small>
+                        {% endif %}
+                      </p>
+
+                      <!-- Time -->
+                      <p class="card-text small text-muted">
+                        Last updated on <time datetime="2018-01-03">{{ staff.profile.pan_update_date }}</time>
+                      </p>
+                      
+                    </div>
+                    <div class="col-auto">
+                      
+                        {% if staff.profile.pan_card %}
+                        <a href="{{ staff.profile.pan_card.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                            View Document
+                          </a>
+                        <a href="{{ staff.profile.pan_card.url }}" class="btn btn-sm btn-white d-none d-md-inline-block" download="">Download</a>
+                        {% else %}
+                        <small style="color:crimson;">Unavailable</small>
+                        {% endif %}
+
+                    </div>
+                    
+                  </div> <!-- / .row -->
+
+                </li>
+              <li class="list-group-item px-0">
+                
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    
+                    <!-- Avatar -->
+                    <a href="#!" class="avatar avatar-lg">
+                      <span class="avatar-title rounded bg-white text-secondary">
+                        <span class="fe fe-folder"></span>
+                      </span>
+                    </a>
+
+                  </div>
+                  <div class="col ml-n2">
+
+                    <!-- Title -->
+                    <h4 class="card-title mb-1 name">
+                      <a href="#!">SSC Certificate</a>
+                    </h4>
+
+                    <!-- Text -->
+                    <p class="card-text small text-muted mb-1">
+                        {% if staff.profile.ssc_cert %}
+                        <h4>Successfully Uploaded</h4>
+                        
+                      {% else %}
+                      <small style="color:crimson;">Unavailable</small>
+                      {% endif %}
+                    </p>
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                        Last updated on <time datetime="2018-01-03">{{ staff.profile.ssc_update_date }}</time>
+                    </p>
+                    
+                  </div>
+                  <div class="col-auto">
+                    
+                    {% if staff.profile.ssc_cert %}
+                    <a href="{{ staff.profile.ssc_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                      View Document
+                    </a>
+                    <a href="{{ staff.profile.ssc_cert.url }}" download class="btn btn-sm btn-white d-none d-md-inline-block">
+                        Download
+                    </a>
+                    {% else %}
+                    <small style="color:crimson;">Not Yet Updated</small>
+                    {% endif %}
+
+                  </div>
+                  <div class="col-auto">
+                    
+                    
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </li>
+              <li class="list-group-item px-0">
+                
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      
+                      <!-- Avatar -->
+                      <a href="#!" class="avatar avatar-lg">
+                        <span class="avatar-title rounded bg-white text-secondary">
+                          <span class="fe fe-folder"></span>
+                        </span>
+                      </a>
+  
+                    </div>
+                    <div class="col ml-n2">
+  
+                      <!-- Title -->
+                      <h4 class="card-title mb-1 name">
+                        <a href="#!">HSC Certificate</a>
+                      </h4>
+  
+                      <!-- Text -->
+                      <p class="card-text small text-muted mb-1">
+                          {% if staff.profile.hsc_cert %}
+                          <h4>Successfully Uploaded</h4>
+                          
+                        {% else %}
+                        <small style="color:crimson;">Unavailable</small>
+                        {% endif %}
+                      </p>
+  
+                      <!-- Time -->
+                      <p class="card-text small text-muted">
+                          Last updated on <time datetime="2018-01-03">{{ staff.profile.hsc_update_date }}</time>
+                      </p>
+                      
+                    </div>
+                    <div class="col-auto">
+                      
+                      {% if staff.profile.hsc_cert %}
+                      <a href="{{ staff.profile.hsc_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                        View Document
+                      </a>
+                      <a href="{{ staff.profile.hsc_cert.url }}" download class="btn btn-sm btn-white d-none d-md-inline-block">
+                          Download
+                      </a>
+                      {% else %}
+                      <small style="color:crimson;">Not Yet Updated</small>
+                      {% endif %}
+  
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                  </div> <!-- / .row -->
+  
+                </li>
+              <li class="list-group-item px-0">
+                
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        
+                        <!-- Avatar -->
+                        <a href="#!" class="avatar avatar-lg">
+                          <span class="avatar-title rounded bg-white text-secondary">
+                            <span class="fe fe-folder"></span>
+                          </span>
+                        </a>
+    
+                      </div>
+                      <div class="col ml-n2">
+    
+                        <!-- Title -->
+                        <h4 class="card-title mb-1 name">
+                          <a href="#!">BE Certificate</a>
+                        </h4>
+    
+                        <!-- Text -->
+                        <p class="card-text small text-muted mb-1">
+                            {% if staff.profile.be_cert %}
+                            <h4>Successfully Uploaded</h4>
+                            
+                          {% else %}
+                          <small style="color:crimson;">Unavailable</small>
+                          {% endif %}
+                        </p>
+    
+                        <!-- Time -->
+                        <p class="card-text small text-muted">
+                            Last updated on <time datetime="2018-01-03">{{ staff.profile.be_update_date }}</time>
+                        </p>
+                        
+                      </div>
+                      <div class="col-auto">
+                        
+                        {% if staff.profile.be_cert %}
+                        <a href="{{ staff.profile.be_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          View Document
+                        </a>
+                        <a href="{{ staff.profile.be_cert.url }}" download class="btn btn-sm btn-white d-none d-md-inline-block">
+                            Download
+                        </a>
+                        {% else %}
+                        <small style="color:crimson;">Not Yet Updated</small>
+                        {% endif %}
+    
+                      </div>
+                      <div class="col-auto">
+                      </div>
+                    </div> <!-- / .row -->
+    
+                  </li>
+                  <li class="list-group-item px-0">
+                
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          
+                          <!-- Avatar -->
+                          <a href="#!" class="avatar avatar-lg">
+                            <span class="avatar-title rounded bg-white text-secondary">
+                              <span class="fe fe-folder"></span>
+                            </span>
+                          </a>
+      
+                        </div>
+                        <div class="col ml-n2">
+      
+                          <!-- Title -->
+                          <h4 class="card-title mb-1 name">
+                            <a href="#!">ME Certificate</a>
+                          </h4>
+      
+                          <!-- Text -->
+                          <p class="card-text small text-muted mb-1">
+                              {% if staff.profile.me_cert %}
+                              <h4>Successfully Uploaded</h4>
+                              
+                            {% else %}
+                            <small style="color:crimson;">Unavailable</small>
+                            {% endif %}
+                          </p>
+      
+                          <!-- Time -->
+                          <p class="card-text small text-muted">
+                              Last updated on <time datetime="2018-01-03">{{ staff.profile.me_update_date }}</time>
+                          </p>
+                          
+                        </div>
+                        <div class="col-auto">
+                          
+                          {% if staff.profile.me_cert %}
+                          <a href="{{ staff.profile.me_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                            View Document
+                          </a>
+                          <a href="{{ staff.profile.me_cert.url }}" download class="btn btn-sm btn-white d-none d-md-inline-block">
+                              Download
+                          </a>
+                          {% else %}
+                          <small style="color:crimson;">Not Yet Updated</small>
+                          {% endif %}
+      
+                        </div>
+                        <div class="col-auto">
+                        </div>
+                      </div> <!-- / .row -->
+      
+                    </li>
+                    <li class="list-group-item px-0">
+                
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            
+                            <!-- Avatar -->
+                            <a href="#!" class="avatar avatar-lg">
+                              <span class="avatar-title rounded bg-white text-secondary">
+                                <span class="fe fe-folder"></span>
+                              </span>
+                            </a>
+        
+                          </div>
+                          <div class="col ml-n2">
+        
+                            <!-- Title -->
+                            <h4 class="card-title mb-1 name">
+                              <a href="#!">PHD Certificate</a>
+                            </h4>
+        
+                            <!-- Text -->
+                            <p class="card-text small text-muted mb-1">
+                                {% if staff.profile.phd_cert %}
+                                <h4>Successfully Uploaded</h4>
+                                
+                              {% else %}
+                              <small style="color:crimson;">Unavailable</small>
+                              {% endif %}
+                            </p>
+        
+                            <!-- Time -->
+                            <p class="card-text small text-muted">
+                                Last updated on <time datetime="2018-01-03">{{ staff.profile.phd_update_date }}</time>
+                            </p>
+                            
+                          </div>
+                          <div class="col-auto">
+                            
+                            {% if staff.profile.phd_cert %}
+                            <a href="{{ staff.profile.phd_cert.url }}" target="_blank" class="btn btn-sm btn-white d-none d-md-inline-block">
+                              View Document
+                            </a>
+                            <a href="{{ staff.profile.phd_cert.url }}" download class="btn btn-sm btn-white d-none d-md-inline-block">
+                                Download
+                            </a>
+                            {% else %}
+                            <small style="color:crimson;">Not Yet Updated</small>
+                            {% endif %}
+        
+                          </div>
+                          <div class="col-auto">
+                          </div>
+                        </div> <!-- / .row -->
+        
+                      </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- / .row -->
+  </div>
+{% endblock %}
+{{ staff.email }}
+{{ staff.username }}

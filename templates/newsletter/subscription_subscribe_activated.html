@@ -1,0 +1,20 @@
+{% extends 'newsletter/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<!--MAIN CONTENT-->
+<main class="page__content">
+        <section class="g-container">
+            <figure class="content404">
+                    <img src="{% static 'site/img/news.png' %}" class="content404__img" alt="Page 404" />
+                <figcaption class="content404__entry">
+                        <h1>{% trans "Newsletter" %} {{ newsletter.title }} {{ action }} {% trans "activate" %}</h1>
+
+                        <p>{% trans "Your subscription has successfully been activated." %}</p>
+                </figcaption>
+            </figure>
+             
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+{% endblock %}

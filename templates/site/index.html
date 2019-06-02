@@ -1,0 +1,311 @@
+{% extends 'site/base.html' %}
+{% load static %}
+{% block content %}
+    <!--MAIN CONTENT-->
+
+<main class="page__content">
+    <section class="g-container g-container-main">
+      <div class="g-container-main-left">
+        <header class="b-hero g-container-main-hero">
+            <h1 class="fs50 g-title mb3">Don’t let what you cannot do interfere with what you can do.</h1>
+            <p class="mb3">The network legal will help to be updated in the field of Law</p>
+        </header>
+
+        <form  action="#" method="post" class="b-login b-login-top g-container-main-buttons">
+                <a href="/accounts/google/login" type="button" class="b-login__btn">
+                  
+                    Sign up with Google
+                </a>
+                
+                <label class="b-login__label">or</label>
+                <a href="/accounts/facebook/login/callback/" type="button" class="b-login__btn">
+                    
+                    Sign up with Facebook
+                </a>
+                <!-- <fieldset class="b-login__fieldset">
+                    <input type="email" id="registration-email" name="email" class="b-login__input" placeholder="Email address..." required />
+                    <button type="submit" class="b-login__btn b-login__btn--main">
+                        <span class="b-login__caption b-login__caption--xs">Get started</span>
+                        <span class="b-login__caption b-login__caption--md">Get started for free</span>
+                        <span class="g-btn__icon g-btn__icon--sent"><i class="icon-load"></i></span>
+                        <span class="g-btn__icon g-btn__icon--success"><i class="icon-check"></i></span>
+                    </button>
+                </fieldset> -->
+            </form>
+            <div class="b-login-extra g-container-main-extra">
+              <a href="#" class="f-menu__link">or use your email address <i class="icon-arrow-right"></i></a>
+            </div>
+        </div>
+        <figure class="g-text-center centered-img g-container-main-image">
+            <img src="{% static 'site/img/home_2.png' %}" style="max-width:570px;max-height:500px;margin-bottom:70px;margin-top:10px" alt="high performing team" />
+        </figure>
+    </section>
+
+
+    <section class="page__section page__section--alt">
+        <div class="g-container">
+            <header class="b-hero mb5 mt5">
+                <h2 class="g-title g-title--alt">A law is valuable, not because it is a law, but because there is right in it.</h2>
+            </header>
+            <div class="g-container g-container--inner g-big-text" hidden="hidden">
+                <div class="g-row g-text-center">
+                    <figure class="g-col g-col--one-third">
+                        <div class="b-icon">
+                            <img src="{% static 'site/img/resources_1.png' %}" class="b-icon__img" width="200" alt="hardcore performance processes" />
+                        </div>
+                        <figcaption>
+                            Supplementary Resources
+                        </figcaption>
+                    </figure>
+                    <figure class="g-col g-col--one-third">
+                        <div class="b-icon">
+                            <img src="wp-content/themes/teambeat/img/nofeedback.png" class="b-icon__img" width="145" alt="unclear feedack" />
+                        </div>
+                        <figcaption>
+                           Free Registration
+                        </figcaption>
+                    </figure>
+                    <figure class="g-col g-col--one-third">
+                        <div class="b-icon">
+                            <img src="{% static 'site/img/flexible.png' %}" class="b-icon__img" width="150" alt="unsafe to speak up" />
+                        </div>
+                        <figcaption>
+                            Flexible learning program
+                        </figcaption>
+                    </figure>
+                </div>
+                
+            </div>
+
+            <section class="g-container g-container--inner g-big-text" hidden="hidden">
+                <header class="b-hero mb5 mt5">
+                    <h2 class="g-title g-title--alt">It doesn't have to be like that. Teambit is a modern solution that teammates love.</h2>
+                </header>
+                <div class="g-row g-text-center">
+                    <figure class="g-col g-col--one-third">
+                        <div class="b-icon">
+                            <img src="wp-content/themes/teambeat/img/lightweight.png" class="b-icon__img" width="170" alt="lightweight performance management" />
+                        </div>
+                        <figcaption>
+                            It's lightweight <br />
+                            fun and interconnected
+                        </figcaption>
+                    </figure>
+                    <figure class="g-col g-col--one-third">
+                        <div class="b-icon">
+                            <img src="wp-content/themes/teambeat/img/feedbacksuggestions.png" class="b-icon__img" width="152" alt="clear feedback" />
+                        </div>
+                        <figcaption>
+                            It encourages regular <br />
+                            feedback with contextual requests
+                        </figcaption>
+                    </figure>
+                    <figure class="g-col g-col--one-third">
+                        <div class="b-icon">
+                            <img src="wp-content/themes/teambeat/img/safe.png" class="b-icon__img" width="60" alt="safe to speak up" />
+                        </div>
+                        <figcaption>
+                            It creates a safe <br />
+                            environment for dialog
+                        </figcaption>
+                    </figure>
+                </div>
+                <p>&nbsp;</p>
+                <div class="g-row g-text-center">
+                    <div class="g-col g-col--one-third"></div>
+                    <figure class="g-col g-col--one-third">
+                        <img src="wp-content/themes/teambeat/img/after.png" alt="engaged employee" style="max-width:280px;" />
+                    </figure>
+                </div>
+                <div class="b-hero mb5 mt8">
+                    <span class="g-title">Here is how it works</span>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    {% for post in post %}
+    {% if forloop.counter|divisibleby:2 %}
+    <section class="page__section">
+            <div class="b-grid mb3 mt3">
+                <div class="b-grid__wrap b-grid__wrap--full b-grid__wrap--right b-grid__wrap--sm">
+                        <picture>
+                            <source srcset="{{ post.cover_image.url }}" media="(max-width: 992px)">
+                            <source srcset="{{ post.cover_image.url }}" />
+                            <img src="{{ post.cover_image.url }}" srcset="{{ post.cover_image.url }}" alt="fetured" class="b-grid__img b-grid__img--left">
+                        </picture>
+                        
+                </div>
+                <div class="b-grid__wrap b-grid__wrap--left">
+                    <div class="b-grid__inner">
+                        <header class="b-hero b-hero--alt">
+                            <h3 class="g-title g-title--alt">{{ post.title }}</h3>
+                            <p>{{ post.short_desc }} <br><br>
+                            <a href="{% url 'post_details_slug' post.slug %}">Read more <i class="icon-arrow-right"></i></a></p>
+                        </header>
+                       
+                    </div>
+                </div>
+                <div class="b-grid__wrap b-grid__wrap--full b-grid__wrap--right b-grid__wrap--xl">
+                        <picture>
+                            <source srcset="{{ post.cover_image.url }}" media="(max-width: 992px)">
+                            <source srcset="{{ post.cover_image.url }}" />
+                            <img src="{{ post.cover_image.url }}" srcset="{{ post.cover_image.url }}" alt="fetured" class="b-grid__img b-grid__img--left">
+                        </picture>
+                        
+                </div>
+            </div>
+        </section>
+    
+        {% else %}
+        <section class="page__section page__section--toppad">
+                <div class="b-grid mb3 mt3">
+                    <div class="b-grid__wrap b-grid__wrap--full b-grid__wrap--left">
+                        <picture>
+                            <source srcset="{{ post.cover_image.url }}" media="(max-width: 992px)">
+                            <source srcset="{{ post.cover_image.url }}" />
+                            <img src="{{ post.cover_image.url }}" srcset="{{ post.0.cover_image.url }}" alt="fetured" class="b-grid__img b-grid__img--left">
+                        </picture>
+                        
+                    </div>
+                    <div class="b-grid__wrap b-grid__wrap--right">
+                        <div class="b-grid__inner">
+                            <header class="b-hero b-hero--alt">
+                                <h3 class="g-title g-title--alt">{{ post.title }}</h3>
+                                <p>{{ post.short_desc }}<br><br>
+                                <a href="{% url 'post_details_slug' post.slug %}">Read more <i class="icon-arrow-right"></i></a></p>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+  
+    {% endfor %}
+
+    <section class="page__section page__section--alt">
+            <div class="g-container">
+                
+                <section class="g-container g-container--inner g-big-text">
+                    <header class="b-hero mb5 mt5">
+                        <h2 class="g-title g-title--alt">Recently added to knowledge hub.</h2>
+                    </header>
+                    <div class="g-row g-text-center">
+
+                        {% for recent_post in recent_post %}
+                        <a href="{% url 'post_details_slug' recent_post.slug %}">
+                                <figure class="g-col g-col--one-third">
+                                        <div class="b-icon">
+                                                <img src="{{ recent_post.cover_image.url }}" class="b-icon__img" width="170" alt="blog cover" />
+                                        </div>
+                                        <figcaption>
+                                            {{ recent_post.title }}
+                                        </figcaption>
+                                    </figure>
+                        </a>
+                        {% endfor %}
+                        
+                    </div>
+                    <p>&nbsp;</p>
+                    <a style="float: right" href="{% url 'most_recent' %}" class="f-menu__link">&nbsp; More recent <i class="icon-arrow-right"></i></a>
+                </section>
+            </div>
+        </section>
+    <div class="g-container">
+        <hr />
+    </div>
+
+    <section class="page__section">
+        <div class="g-container">
+            <!--subscribe block-->
+            <div class="b-subscribe">
+                <div class="b-subscribe__entry">
+                    <h1 class="b-subscribe__title">A weekly newsletter on how to know law better </h1>
+                    <p>Join people from diferent fields who get our digest every week.</p>
+
+                    <!-- Begin MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                      <form action="/newsletter/weekly-newsletter-how-know-law-better/subscribe/" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            {% csrf_token %}
+                        <div id="mc_embed_signup_scroll">
+                          <div class="mc-field-group">
+                            {% if user.is_authenticated %}
+                            <input type="text" value="{{ user.first_name }}{{ user.last_name }}"  name="name_field" hidden="hidden">
+                            {% endif %}
+                            <input type="email" value="{{ user.email }}" class="b-subscribe__input" placeholder="Email address..."  name="email_field">
+                            <input type="submit" value="Subscribe" name="submit" id="mc-embedded-subscribe" class="b-subscribe__btn">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <!--End mc_embed_signup-->
+
+                </div>
+                <figure class="b-subscribe__thumb">
+                    <img src="{% static 'site/img/home_3.jpg' %}" class="b-subscribe__img" alt="person working" />
+                </figure>
+            </div>
+            <!--/subscribe block-->
+        </div>
+    </section>
+
+
+
+    <div class="g-container">
+        <hr />
+    </div>
+
+    <section class="page__section page__section--alt">
+        <div class="g-container g-container__inner">
+            <header class="b-hero mb5 mt5">
+                <h6 class="g-title g-title--alt fs36">
+                    If you must break the law, do it to seize power: in all other cases observe it.&nbsp;<img src="wp-content/themes/teambeat/img/happy.svg" alt="" />
+                </h6>
+            </header>
+            <blockquote class="b-quote">
+                <p>Within our homes, our organisations, our communities, and the country we live in, we are surrounded by rules on what is allowed, and what is not. Within a country, these rules are known as the Law, and are some of the most important parts of modern society. From learning about why laws change, to organisational issues such as Alternative Dispute Resolution, Alison's wide selection of free online Law courses will help you increase your understanding of the legal system. This knowledge will make you a more aware citizen, and maybe even open up a fantastic career.</p>
+
+                <div class="b-quote__author">
+                    <div class="b-quote__photo">
+                        <img src="{% static 'site/img/logo.png' %}" alt="Alex Potrivaev" width="100" />
+                        
+                    </div>
+                    <div class="b-quote__cite" hidden="hidden">
+                        <span class="b-quote__name">Alex and Bohdan</span>
+                        Co-Founders at Teambit
+                    </div>
+                </div>
+            </blockquote>
+
+            <form  action="" method="post" class="b-login b-login-bottom">
+                <a href="/accounts/google/login" type="button" class="b-login__btn">
+                    
+                    Sign up with Google
+                </a>
+                
+                <label class="b-login__label">or</label>
+                <a href="/accounts/facebook/login" type="button" class="b-login__btn">
+                  
+                    Sign up with Facebook
+                </a>
+                <!-- <fieldset class="b-login__fieldset">
+                    <input type="email" id="registration-email" name="email" class="b-login__input" placeholder="Email address..." required />
+                    <button type="submit" class="b-login__btn b-login__btn--main">
+                        <span class="b-login__caption b-login__caption--xs">Get started</span>
+                        <span class="b-login__caption b-login__caption--md">Get started for free</span>
+                        <span class="g-btn__icon g-btn__icon--sent"><i class="icon-load"></i></span>
+                        <span class="g-btn__icon g-btn__icon--success"><i class="icon-check"></i></span>
+                    </button>
+                </fieldset> -->
+            </form>
+            <div class="b-login-extra">
+              <a href="#" class="f-menu__link">or use your email address <i class="icon-arrow-right"></i></a>
+            </div>
+<!--               <span class="teambot"> <img src="https://teambit.io/wp-content/themes/teambeat/img/teambot.svg" alt="Teambot" /></span>-->
+        </div>
+    </section>
+</main>
+<!--/MAIN CONTENT-->
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'site/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Content Start -->
+
+<div class="container-single" id="content-single" role="main">
+        <div class="a2a_kit a2a_kit_size_32 share-buttons">
+            <a class="a2a_button_twitter"></a>
+                <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_linkedin"></a>
+        </div>
+    
+        <main class="single-post">
+            <article id="post-98" class="post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-work tag-culture tag-future tag-work">
+                <header>
+                    <h1>{{ post.title }}</h1>
+    
+                    <div class="entry-meta">
+                        By <a href="#" title="Posts by Alex Potrivaev" rel="author">{{ post.author }} </a> in <a href="#" rel="category tag">{{ post.category }}</a>				</div>
+
+                    <div class="container post-image">
+        <figure>
+                {% if post.cover_image %}
+            <img width="573" height="430" src="{{ post.cover_image.url }}" class="full-width wp-post-image" alt="" />	</figure>
+            {% else %}
+            <img width="573" height="430" src="{% static 'site/img/blog_cover.jpg' %}" class="full-width wp-post-image" alt="" />	</figure>
+            {% endif %}
+    </div>
+                </header>
+    
+                <blockquote><p>{{ post.short_desc }}</p></blockquote>
+                {{ post.description | safe }}
+    
+                <footer>
+                    <nav class="post-tags">
+                        <img class="icon-tag" src="{% static 'site/wp-content/themes/teambeat/img/tag.svg' %}"></img>&emsp;<a href="#" rel="tag">Private Law</a>&emsp;<a href="#" rel="tag">Labour Law</a>&emsp;<a href="#" rel="tag">Administrative Law</a>				</nav>
+                    <div class="share-this">
+                    </div>
+    
+                        <aside class="sidebar">
+                    <div class="subscribe-form">
+                <div class="title">
+                    Like what you read?
+                </div>
+                <p class="p" style="text-align:left; color:#58402C">
+                    Join people from companies like Intercom or Spotify who read our weekly email on building better teams.
+                </p>
+                <!-- Begin MailChimp Signup Form -->
+                <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="b-subscribe__form centereds" target="_blank" novalidate>
+                    <input type="email" value="" name="EMAIL" class="b-subscribe__input b-subscribe__input-text" placeholder="Email address..." id="mce-EMAIL">
+                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="b-subscribe__btn b-subscribe__btn-text">
+                        Subscribe
+                        <span class="g-btn__icon g-btn__icon--sent"><i class="icon-load"></i></span>
+                        <span class="g-btn__icon g-btn__icon--success"><i class="icon-check"></i></span>
+                    </button>
+                </form>
+                
+                <!--End mc_embed_signup-->
+            </div>
+        </aside>
+                    
+                    <div class="post-author" hidden>
+                        <figure class="avatar">
+                            <img src="../../wp-content/uploads/me1-e1436957042722.jpg" alt="Alex Potrivaev" class="avatar avatar- wp-user-avatar wp-user-avatar- alignnone photo" />					</figure>
+                        <div class="description">
+                            <div class="name">
+                                <a href="../author/alexpotrivaev/index.html" title="Posts by Alex Potrivaev" rel="author">Alex Potrivaev</a>						</div>
+                            I'm a co-founder here at Teambit, focused on all things design, marketing and business						<br />
+                            <a href="https://twitter.com/alexpotrivaev">@alexpotrivaev</a>					</div>
+                    </div>
+                </footer>
+            </article>
+            <hr />  
+
+            <div class="subscribe-form">
+                    <div class="title">
+                        Leave comment
+                    </div>
+                    
+                    <!-- Begin MailChimp Signup Form -->
+                    {% if user.is_authenticated %}
+                    <!-- Input -->
+                    <form class="b-subscribe__form centereds" action="{% url 'add_comment' post.id %}" method="POST">{% csrf_token %}
+                      <input type="number" name="user" value="{{ user.id}}" hidden>
+                      <input type="text" name="name" value="{{ user.first_name}} {{ user.last_name }}" hidden>
+                      <input type="email" name="email" value="{{ user.email }}" hidden>
+                      <input type="text" value="" name="text" class="b-subscribe__input b-subscribe__input-text" placeholder="cpmment text ">
+                      <button type="submit" hidden></button>
+
+                      <br>
+
+                    </form>
+                    {% else %}
+
+                    <form class="b-subscribe__form centereds" action="{% url 'add_comment' post.id %}" method="POST">{% csrf_token %}
+                      <input type="text" name="name" value="" class="b-subscribe__input b-subscribe__input-text" placeholder="Full Name" required>
+                      <br>
+                      <input type="email" name="email" class="b-subscribe__input b-subscribe__input-text" placeholder="Email" required>
+                      <br>
+                      <input type="text" name="text" class="b-subscribe__input b-subscribe__input-text" placeholder="Leave a comment">
+                      <button type="submit" hidden></button>
+
+                      <br>
+
+                    </form>
+
+                    {% endif %}
+                    
+                    <!--End mc_embed_signup-->
+                </div>
+
+        
+                     
+  
+    
+            <div id="comments" hidden="hidden">
+                
+    <div id="disqus_thread">
+                <div id="dsq-content">
+    
+    
+                <ul id="dsq-comments">
+                        <li class="comment even thread-even depth-1" id="dsq-comment-7">
+            <div id="dsq-comment-header-7" class="dsq-comment-header">
+                <cite id="dsq-cite-7">
+                    <a id="dsq-author-user-7" href="http://www.iunique.com.cn/" target="_blank" rel="nofollow">Xu Deyuan</a>
+                </cite>
+            </div>
+            <div id="dsq-comment-body-7" class="dsq-comment-body">
+                <div id="dsq-comment-message-7" class="dsq-comment-message"><p>Well structured &amp; Said.</p>
+    </div>
+            </div>
+    
+    </li><!-- #comment-## -->
+                </ul>
+    
+    
+            </div>
+    
+        </div>
+    
+            </div>
+    
+                </main>
+    
+        
+    </div><!--/#content-->
+    <!-- /Page Content End -->
+{% endblock  %}

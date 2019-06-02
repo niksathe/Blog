@@ -1,0 +1,39 @@
+{% extends 'newsletter/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<!--MAIN CONTENT-->
+<main class="page__content">
+        <section class="g-container">
+            <figure class="content404">
+                    <img src="{% static 'site/img/news.png' %}" class="content404__img" alt="Page 404" />
+                <figcaption class="content404__entry">
+                    <h1 class="content404__title">{% trans "Newsletter" %} {{ object.title }}</h1>
+                    <table>
+                            <tr>
+                                <td><a href="{% url "newsletter_subscribe_request" object.slug %}">{% trans "Subscribe" %}</a></td>
+                            </tr>
+                            {% if not user.is_authenticated %}
+                            <tr>
+                                <td><a href="{% url "newsletter_update_request" object.slug %}">{% trans "Update" %}</a></td>
+                            </tr>
+                            {% endif %}
+                            <tr>
+                                <td><a href="{% url "newsletter_unsubscribe_request" object.slug %}">{% trans "Unsubscribe" %}</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="{% url "newsletter_archive" object.slug %}">{% trans "Archive" %}</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="../">{% trans "Back to list" %}</a></td>
+                            </tr>
+                        </table>
+                </figcaption>
+            </figure>
+             
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+{% endblock %}
+
+

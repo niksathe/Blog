@@ -1,0 +1,209 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+
+
+
+      <!-- CARDS -->
+      <div class="container-fluid">
+        <!-- Documents -->
+        <div class="card" data-toggle="lists" data-lists-values='["name"]'>
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col">
+
+                  <!-- Title -->
+                  <h4 class="card-header-title">
+                    Posts
+                  </h4>
+
+                </div>
+                <div class="col-auto" hidden="hidden">
+
+                  <!-- Dropdown -->
+                  <div class="dropdown">
+
+                    <!-- Toggle -->
+                    <a href="#" class="small text-muted dropdown-toggle" data-toggle="dropdown">
+                      Sort order
+                    </a>
+
+                    <!-- Menu -->
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item sort" data-sort="name" href="#!">
+                        Asc
+                      </a>
+                      <a class="dropdown-item sort" data-sort="name" href="#!">
+                        Desc
+                      </a>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="col-auto">
+
+                  <!-- Button -->
+                  <div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+
+
+                </div>
+              </div> <!-- / .row -->
+            </div>
+            <div class="card-header">
+              <div class="row">
+                <div class="col-12">
+
+                  <!-- Form -->
+                  <form>
+                    <div class="input-group input-group-flush input-group-merge">
+                      <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <span class="fe fe-search"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div> <!-- / .row -->
+            </div>
+            <div class="card-body">
+
+              <!-- List -->
+              <ul class="list-group list-group-lg list-group-flush list my-n4">
+                {% if posts %}
+                {% for post in posts %}
+                  {% if post.published == True %}
+                  <li class="list-group-item px-0">
+
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+
+                      <!-- Avatar -->
+                      <a href="#!" class="avatar avatar-lg">
+                        <span class="avatar-title rounded bg-white text-secondary">
+                            {% if post.cover_image %}
+                            <img src="{{ post.cover_image.url }}" width="50px" height="50px" />
+                            {% else %}
+                            <span class="fe fe-folder"></span>
+                            {% endif %}
+                        </span>
+                      </a>
+
+                    </div>
+                    <div class="col ml-n2">
+
+                      <!-- Title -->
+                      <h4 class="card-title mb-1 name">
+                        <a href="{% url 'post_details' post.id %}">{{ post.title }}</a>
+                      </h4>
+
+                      <!-- Text -->
+                      <p class="card-text small text-muted mb-1">
+
+                         By  <small style="color:red">{{ post.author }}</small>
+                      </p>
+
+                      <!-- Time -->
+                      <p class="card-text small text-muted">
+                          Last updated on <time datetime="2018-01-03">{{ post.created_on }}</time>
+                      </p>
+
+                    </div>
+                    
+                    <div class="col-auto">
+                        {% if post.fetured == True %}
+                        <a href="{% url 'remove_from_fetured' post.id %}"><button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                            Remove to featured
+                          </button></a>
+                        {% else %}
+                        <a href="{% url 'add_to_fetured' post.id %}"><button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                            Add to featured
+                          </button></a>
+                        {% endif %}
+                        {% if user == post.author %}
+                        <a href="{% url 'edit_post' post.id %}"><button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          Edit Post
+                        </button></a>
+                        <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: red;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel" style="color: white;">Delete Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="color: white;">
+        {{ post.title }} - will be deleted...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">cancel </button>
+            <a href="{% url 'delete_post' post.id %}"> <button type="button" class="btn btn-white">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MAIN CONTENT
+    ================================================== -->
+                        <button type="button" class="btn btn-sm btn-white d-none d-md-inline-block" data-toggle="modal" data-target="#deleteModal">
+                          Delete
+                        </button>
+                        {% endif %}
+                        <a href="{% url 'post_details' post.id %}"><button type="submit" class="btn btn-sm btn-white d-none d-md-inline-block">
+                          Details
+                        </button></a>
+
+
+                    </div>
+                    <div class="col-auto">
+
+
+
+                    </div>
+                  </div> <!-- / .row -->
+
+                </li>
+                  {% endif %}
+                  {% endfor %}
+                  {% else %}
+                  <li class="list-group-item px-0">
+
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <h3> No posts yet....</h3>
+                          </div>
+                          </div>
+                        </li>
+                  {% endif %}
+              </ul>
+
+            </div>
+          </div>
+
+      </div>
+
+    </div> <!-- / .main-content -->
+{% endblock %}
+

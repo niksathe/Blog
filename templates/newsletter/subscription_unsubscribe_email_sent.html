@@ -1,0 +1,23 @@
+
+
+{% extends 'newsletter/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<!--MAIN CONTENT-->
+<main class="page__content">
+        <section class="g-container">
+            <figure class="content404">
+                    <img src="{% static 'site/img/news.png' %}" class="content404__img" alt="Page 404" />
+                <figcaption class="content404__entry">
+                        <h1>{% trans "Newsletter unsubscribe" %} {{ newsletter.title }}</h1>
+
+                        <p>{% trans "Your unsubscription request has successfully been received. An email has been sent to you with a link you need to follow in order to confirm your unsubscription." %}</p>
+                         
+                </figcaption>
+            </figure>
+             
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+{% endblock %}

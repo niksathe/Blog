@@ -1,0 +1,151 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 col-xl-8">
+
+            <!-- Header -->
+            <div class="header mt-md-5">
+              <div class="header-body">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Pretitle -->
+                    <h6 class="header-pretitle">
+                      New post
+                    </h6>
+
+                    <!-- Title -->
+                    <h1 class="header-title">
+                      Create a new post
+
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form class="mb-4" method="POST" action="{% url 'create_post' %}" enctype="multipart/form-data">{% csrf_token %}
+
+              <!-- Project name -->
+              <div class="form-group">
+                <label>
+                  Post Title
+                </label>
+                <!-- <input type="text" class="form-control"> -->
+                  {{ post_form.title }}
+              </div>
+
+              <div class="form-group">
+                  <label>
+                    Post Description
+                  </label>
+                  <!-- <input type="text" class="form-control"> -->
+                    {{ post_form.short_desc }}
+                </div>
+
+                <div class="form-group">
+                <label>
+                  Post Cover Image
+                </label>
+                <!-- <input type="text" class="form-control"> -->
+                    <div class="dropzone dropzone-single mb-3" data-toggle="dropzone">
+
+                  <div class="fallback">
+                    <div class="custom-file">
+                      {{ post_form.cover_image }}
+                      <label class="custom-file-label">
+                          Choose file
+                      </label>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Project description -->
+              <div class="form-group">
+                <label class="mb-1">
+                  Post description
+                </label>
+                <small class="form-text text-muted">
+                  This is how others will learn through the post, so make it good!
+                </small>
+                  {{ post_form.media}}
+                  {{ post_form.description }}
+                <!-- <div data-toggle="quill"></div> -->
+              </div>
+
+                <div class="form-group">
+                <label>
+                  Category
+                </label>
+                <!-- <input type="text" class="form-control"> -->
+                  {{ post_form.category }}
+              </div>
+
+
+              <!-- Divider -->
+              <hr class="mt-5 mb-5" hidden>
+
+              <div class="row" hidden>
+                <div class="col-12 col-md-6">
+
+                  <!-- Private project -->
+                  <div class="form-group">
+                    <label class="mb-1">
+                      Private project
+                    </label>
+                    <small class="form-text text-muted">
+                      If you are available for hire outside of the current situation, you can encourage others to hire you.
+                    </small>
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="switchOne">
+                      <label class="custom-control-label" for="switchOne"></label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-12 col-md-6">
+
+                  <!-- Warning -->
+                  <div class="card bg-light border">
+                    <div class="card-body">
+
+                      <h4 class="mb-2">
+                        <i class="fe fe-alert-triangle"></i> Warning
+                      </h4>
+
+                      <p class="small text-muted mb-0">
+                        Once a project is made private, you cannot revert it to a public project.
+                      </p>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div> <!-- / .row -->
+
+              <!-- Divider -->
+              <hr class="mt-5 mb-5">
+
+              <!-- Buttons -->
+                <button type="submit" class="btn btn-block btn-primary">
+                    Submit
+                </button>
+
+              <a href="#" class="btn btn-block btn-link text-muted">
+                Cancel this post
+              </a>
+
+            </form>
+
+          </div>
+        </div> <!-- / .row -->
+      </div>
+{% endblock %}

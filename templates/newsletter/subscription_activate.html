@@ -1,0 +1,24 @@
+{% extends 'newsletter/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<!--MAIN CONTENT-->
+<main class="page__content">
+        <section class="g-container">
+            <figure class="content404">
+                    <img src="{% static 'site/img/news.png' %}" class="content404__img" alt="Page 404" />
+                <figcaption class="content404__entry">
+                        <h1>{% trans "Newsletter" %} {{ newsletter.title }} {{ action }} {% trans "activate" %}</h1>
+
+                        <form enctype="multipart/form-data" method="post" action=".">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <p><input id="id_submit" name="submit" value="{% trans "Activate" %}" type="submit" /></p>
+                        </form>
+                </figcaption>
+            </figure>
+             
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'newsletter/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<!--MAIN CONTENT-->
+<main class="page__content">
+        <section class="g-container">
+            <figure class="content404">
+                    <img src="{% static 'site/img/news.png' %}" class="content404__img" alt="Page 404" />
+                <figcaption class="content404__entry">
+                    <h1 class="content404__title">{% trans "Newsletter" %} {{ object.title }}</h1>
+                    <table>
+                            <tr>
+                                <th>{% trans "Newsletter archive" %} {{ newsletter.title }}</th>
+                            </tr>
+                            {% for submission in latest %}
+                            <tr>
+                                <td><a href="{{ submission.get_absolute_url }}">{{ submission }}</a></td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <td><a href="../">{% trans "Back to list" %}</a></td>
+                            </tr>
+                        </table>
+                </figcaption>
+            </figure>
+             
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+{% endblock %}
